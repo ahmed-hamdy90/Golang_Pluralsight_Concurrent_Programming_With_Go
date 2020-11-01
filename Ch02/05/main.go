@@ -12,7 +12,7 @@ var random = rand.New(rand.NewSource(time.Now().UnixNano()))
 // main function for program
 func main() {
 	for counter:= 0; counter < 10; counter++ {
-		id := rand.Intn(10) + 1
+		id := random.Intn(10) + 1
 		// first querying from cache
 		if book, ok := queryCache(id); ok {
 			fmt.Println("from cache")
@@ -27,7 +27,6 @@ func main() {
 		}
 		// otherwise
 		fmt.Printf("Book not found with id: '%v'", id)
-
 		// make simple sleep time
 		time.Sleep(150 * time.Millisecond)
 	}
