@@ -38,6 +38,8 @@ func main() {
 			// Must define complete point for waitGroup
 			wg.Done()
 		}(id, waitGroup, mutex)
+		// add sleep time for wait Goroutine complete
+		time.Sleep(150 * time.Millisecond)
 	}
 	// Must tell waitGroup to wait
 	waitGroup.Wait()
